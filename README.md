@@ -30,13 +30,13 @@ The system follows clean architecture principles and demonstrates best backend p
    │
    ▼
 [Database]  ← MySQL tables (Customer, Account, Transaction)<br>
-**Layers Explained:**
+## Layers Explained:
 - Controller Layer – Handles HTTP requests and responses.<br>
 - DTO Layer – Transfers data between client and server. Maps request DTOs to entities and entities to response DTOs.<br>
 - Service Layer – Contains business logic such as transactions, deposits, withdrawals, and transfers. Ensures business rules are applied.<br>
 - Repository Layer – Interacts with the database using Spring Data JPA.<br>
 - Entity Layer – Represents database tables and relationships.<br>
-  **Features**
+  ## Features
   **Customer Management**
   - Create customer
   - Retrieve customer by ID
