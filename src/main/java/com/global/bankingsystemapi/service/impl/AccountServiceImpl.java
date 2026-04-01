@@ -35,13 +35,13 @@ public class AccountServiceImpl implements AccountService {
                 .accountNumber(generateAccountNumber())
                 .customer(customer)
                 .build();
+
         Account saved = accountRepo.save(account);
         return mapToResponse(saved);
     }
 
     @Override
     public AccountResponseDTO getAccountById(Long id) {
-
         return mapToResponse(getAccount(id));
     }
 
@@ -56,7 +56,7 @@ public class AccountServiceImpl implements AccountService {
         account.setStatus(status);
         return  mapToResponse(account);
     }
-
+    //helper methods
     private Account getAccount(Long id) {
         return accountRepo.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("account not found"));

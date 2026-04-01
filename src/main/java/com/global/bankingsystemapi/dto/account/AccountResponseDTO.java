@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Builder
 public class AccountResponseDTO {
-
     private Long id;
     private String accountNumber;
     private BigDecimal balance;

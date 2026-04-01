@@ -1,5 +1,6 @@
 package com.global.bankingsystemapi.dto.account;
 
+import com.global.bankingsystemapi.entity.enums.AccountStatus;
 import com.global.bankingsystemapi.entity.enums.AccountType;
 import lombok.*;
 

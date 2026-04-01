@@ -44,6 +44,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         if(account.getBalance().compareTo(request.getAmount()) < 0 )
             throw new ResourceNotFoundException("not enough balance");
+        //withdraw
         account.setBalance(account.getBalance().subtract(request.getAmount()));
 
         Transaction transaction = Transaction.builder()
@@ -60,12 +61,14 @@ public class TransactionServiceImpl implements TransactionService {
     public TransactionResponseDTO transfer(TransactionRequestDTO request) {
         if(request.getSourceAccountId().equals(request.getTargetAccountId()))
             throw new IllegalArgumentException("cannot transfer to same account");
+
         Account source = getAccount(request.getSourceAccountId());
         Account target = getAccount(request.getTargetAccountId());
         validateAmount(request.getAmount());
 
         if (source.getBalance().compareTo(request.getAmount()) < 0)
-            throw new ResourceNotFoundException("Not enough balance");
+            throw new IllegalArgumentException("Not enough balance");
+
         source.setBalance(source.getBalance().subtract(request.getAmount()));
         target.setBalance((target.getBalance().add(request.getAmount())));
 
