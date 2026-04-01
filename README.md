@@ -1,8 +1,7 @@
 # bank-management-system
 built using Spring Boot to simulate real-world banking operations such as managing customers, accounts, and financial transactions.
 The system follows clean architecture principles and demonstrates best backend practices including layered design, DTO usage, transaction handling, and exception management.
- # **Tech Stack**
-
+ ## Tech Stack
 - Java 17
 - Spring Boot
 - Spring Data JPA
@@ -12,8 +11,8 @@ The system follows clean architecture principles and demonstrates best backend p
 - Exception handling 
 - Maven 
 - Jakarta Validation
- # **Architecture & Design**
- The project follows a **layered architecture** that separates concerns and ensures maintainable, clean code.
+ ## Architecture & Design
+ The project follows a **layered architecture** that separates concerns and ensures maintainable, clean code.<br>
  **Flow Diagram:**
  [Client] 
    │
@@ -30,13 +29,13 @@ The system follows clean architecture principles and demonstrates best backend p
 [Repository]  ← Handles database operations using JPA/Hibernate
    │
    ▼
-[Database]  ← MySQL tables (Customer, Account, Transaction)
+[Database]  ← MySQL tables (Customer, Account, Transaction)<br>
 **Layers Explained:**
-- Controller Layer – Handles HTTP requests and responses.
-- DTO Layer – Transfers data between client and server. Maps request DTOs to entities and entities to response DTOs.
-- Service Layer – Contains business logic such as transactions, deposits, withdrawals, and transfers. Ensures business rules are applied.
-- Repository Layer – Interacts with the database using Spring Data JPA.
-- Entity Layer – Represents database tables and relationships.
+- Controller Layer – Handles HTTP requests and responses.<br>
+- DTO Layer – Transfers data between client and server. Maps request DTOs to entities and entities to response DTOs.<br>
+- Service Layer – Contains business logic such as transactions, deposits, withdrawals, and transfers. Ensures business rules are applied.<br>
+- Repository Layer – Interacts with the database using Spring Data JPA.<br>
+- Entity Layer – Represents database tables and relationships.<br>
   **Features**
   **Customer Management**
   - Create customer
