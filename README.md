@@ -14,7 +14,7 @@ The system follows clean architecture principles and demonstrates best backend p
  ## Architecture & Design
  The project follows a <b> layered architecture </b> that separates concerns and ensures maintainable, clean code.<br>
  <h3>Flow Diagram:</h3>
- <img src="flowdiagram/flowdiagram.png" with=500 height=500>
+ <img src="flowdiagram/flowdiagram.png" with=500 height=500><br>
    ## Layers Explained:
   - Controller Layer – Handles HTTP requests and responses.<br>
   - DTO Layer – Transfers data between client and server. Maps request DTOs to entities and entities to response DTOs.<br>
