@@ -12,8 +12,8 @@ The system follows clean architecture principles and demonstrates best backend p
 - Maven 
 - Jakarta Validation
  ## Architecture & Design
- The project follows a **layered architecture** that separates concerns and ensures maintainable, clean code.<br>
- **Flow Diagram:**
+ The project follows a <b> layered architecture </b> that separates concerns and ensures maintainable, clean code.<br>
+ <h3>Flow Diagram:</h3>
  <img src="flowdiagram/flowdiagram.png" with=500 height=500>
    ## Layers Explained:
   - Controller Layer – Handles HTTP requests and responses.<br>
