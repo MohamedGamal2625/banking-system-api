@@ -30,39 +30,39 @@ The system follows clean architecture principles and demonstrates best backend p
    │
    ▼
 [Database]  ← MySQL tables (Customer, Account, Transaction)<br>
-## Layers Explained:
+   ## Layers Explained:
   - Controller Layer – Handles HTTP requests and responses.<br>
   - DTO Layer – Transfers data between client and server. Maps request DTOs to entities and entities to response DTOs.<br>
   - Service Layer – Contains business logic such as transactions, deposits, withdrawals, and transfers. Ensures business rules are applied.<br>
   - Repository Layer – Interacts with the database using Spring Data JPA.<br>
   - Entity Layer – Represents database tables and relationships.<br>
-## Features
-  **Customer Management**
+    ## Features
+**Customer Management**
   - Create customer
   - Retrieve customer by ID<br>
-  **Account Management**
+**Account Management**
   - Create account
   - Retrieve account by ID
   - Get all accounts
   - Update account status (ACTIVE / SUSPENDED)<br>
-  **Transaction Management**
+**Transaction Management**
   - Deposit money
   - Withdraw money
   - Transfer money between accounts<br>
-  **Exceptions Handled**
+**Exceptions Handled**
   - Prevent insufficient balance withdrawals
   - Prevent transfers to the same account
   - Validate transaction amounts<br>
-## API Endpoints
-   **Customers**
+    ## API Endpoints
+**Customers**
   - POST /api/customers – Create customer
   - GET /api/customers/{id} – Get customer by ID<br>
-    **Accounts**
+**Accounts**
   - POST /api/accounts – Create account
   - GET /api/accounts/{id} – Get account by ID
   - GET /api/accounts – Get all accounts
   - PATCH /api/accounts/{id}/status – Update account status<br>
-    **Transactions**
+**Transactions**
   - POST /api/transactions/deposit – Deposit money
   - POST /api/transactions/withdraw – Withdraw money
   - POST /api/transactions/transfer – Transfer money<br>
@@ -76,13 +76,14 @@ The system follows clean architecture principles and demonstrates best backend p
   - Exception Handling
   - Clean Code Principles<br>
     ## Database Design
+**Tables**
   - customers
   - accounts
   - transactions<br>
     ## Relationships:
   - One Customer → Many Accounts
   - One Account → Many Transactions (as sender & receiver)<br>
-    **ransaction Table Columns:**
+**Transaction Table Columns:**
   - source_account_id
   - target_account_id
   - amount
