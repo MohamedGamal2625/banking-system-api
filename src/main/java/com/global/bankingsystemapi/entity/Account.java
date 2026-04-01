@@ -1,5 +1,7 @@
 package com.global.bankingsystemapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.global.bankingsystemapi.entity.enums.AccountStatus;
 import com.global.bankingsystemapi.entity.enums.AccountType;
 import jakarta.persistence.*;
@@ -36,12 +38,15 @@ public class Account {
     private AccountType accountType;
 
     @OneToMany(mappedBy = "sourceAccount")
+    @JsonManagedReference
     private List<Transaction> sentTransactions = new ArrayList<>();
 
     @OneToMany(mappedBy = "targetAccount")
+    @JsonManagedReference
     private List<Transaction> receivedTransactions = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
+    @JsonIgnore
     private Customer customer;
 }

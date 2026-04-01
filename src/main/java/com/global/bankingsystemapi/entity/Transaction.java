@@ -1,5 +1,6 @@
 package com.global.bankingsystemapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.global.bankingsystemapi.entity.enums.TransactionType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,17 +24,15 @@ public class Transaction {
 
     @ManyToOne
     @JoinColumn(name = "source_account_id")
+    @JsonIgnore
     private Account sourceAccount;  // For withdraw or transfer (money leaving)
 
     @ManyToOne
     @JoinColumn(name = "target_account_id")
+    @JsonIgnore
     private Account targetAccount;  // For deposit or transfer (money received)
-
     @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
     private LocalDateTime timeStamp;
 
-    @ManyToOne
-    @JoinColumn(name = "account_id")
-    private Account account;
 }

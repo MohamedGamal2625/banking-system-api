@@ -10,8 +10,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class TransactionRequestDTO {
     private Long sourceAccountId;   // used for withdraw & transfer
-
     private Long targetAccountId;   // used for deposit & transfer
-
     private BigDecimal amount;
 }
