@@ -14,8 +14,14 @@ The system follows clean architecture principles and demonstrates best backend p
  ## Architecture & Design
  The project follows a <b> layered architecture </b> that separates concerns and ensures maintainable, clean code.<br>
  ### Flow Diagram:
- `flowdiagram/flowdiagram.png`
-   ## Layers Explained:
+```mermaid
+flowchart TD
+    A[Client] --> B[Controller]
+    B --> C[DTO Layer]
+    C --> D[Service Layer]
+    D --> E[Repository Layer]
+    E --> F[Database]
+### Layers Explained:
   - Controller Layer – Handles HTTP requests and responses.<br>
   - DTO Layer – Transfers data between client and server. Maps request DTOs to entities and entities to response DTOs.<br>
   - Service Layer – Contains business logic such as transactions, deposits, withdrawals, and transfers. Ensures business rules are applied.<br>
