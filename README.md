@@ -133,7 +133,7 @@ The system uses **JWT (JSON Web Token)** based authentication.
 - RESTful API Design
 - JPA Relationships (OneToMany / ManyToOne)
 - Transaction Handling (@Transactional)
-- Enum Usage for business states
+- Enum Usage for states
 - Exception Handling
 - JWT Authentication & Authorization
 - BCrypt Password Encryption
