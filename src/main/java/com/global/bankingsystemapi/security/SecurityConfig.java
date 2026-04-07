@@ -23,31 +23,34 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(
             HttpSecurity http) throws Exception {
-    http
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth->auth
-                    .requestMatchers("/api/auth/**")
-                    .permitAll()
-                    //Admin only
-                    .requestMatchers("/api/accounts",
-                                      "/api/accounts/{id}/status")
-                    .hasRole("ADMIN")
+        http
+                .csrf(csrf -> csrf.disable())
+                // authorization
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/**")
+                        .permitAll()
+                        //Admin only
+                        .requestMatchers("/api/accounts",
+                                "/api/accounts/{id}/status")
+                        .hasRole("ADMIN")
 
-                    //everthing else need login
-                    .anyRequest().authenticated()
-            )
-            .sessionManagement(
-                    session -> session
-                            .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-        .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-    return http.build();
+                        //everthing else need login
+                        .anyRequest().authenticated()
+                )
+                .sessionManagement(
+                        session -> session
+                                .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
     }
+
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config)
             throws Exception {
         return config.getAuthenticationManager();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

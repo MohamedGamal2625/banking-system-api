@@ -1,5 +1,4 @@
 package com.global.bankingsystemapi.security;
-
 import jakarta.persistence.*;
 import lombok.*;
 

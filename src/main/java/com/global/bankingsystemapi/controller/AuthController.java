@@ -1,5 +1,7 @@
 package com.global.bankingsystemapi.controller;
 
+import com.global.bankingsystemapi.dto.RequestLoginDto;
+import com.global.bankingsystemapi.dto.RequestRegisterDto;
 import com.global.bankingsystemapi.security.AppUser;
 import com.global.bankingsystemapi.security.AppUserRepository;
 import com.global.bankingsystemapi.security.JwtUtil;
@@ -27,10 +29,10 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(
-            @RequestBody Map<String, String> request) {
+            @RequestBody RequestRegisterDto request) {
 
-        String username = request.get("username");
-        String password = request.get("password");
+        String username = request.getUsername();
+        String password = request.getPassword();
 
         // Check username not already taken
         if (appUserRepository
@@ -59,20 +61,20 @@ public class AuthController {
     // ─────────────────────────────────────
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(
-            @RequestBody Map<String, String> request) {
+            @RequestBody RequestLoginDto request) {
 
         try {
             // Verify username + password
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            request.get("username"),
-                            request.get("password")
+                            request.getUsername(),
+                            request.getPassword()
                     )
             );
 
             // Load user to get role
             AppUser user = appUserRepository
-                    .findByUsername(request.get("username"))
+                    .findByUsername(request.getUsername())
                     .orElseThrow();
 
             // Generate token

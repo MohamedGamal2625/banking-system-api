@@ -18,37 +18,41 @@ public class JwtUtil {
 
     @Value("${jwt.expiration}")                      // Line 2
     private long EXPIRY;
+
     // ─────────────────────────────
     // CREATE token
     // ─────────────────────────────
-    public String generateToken(String username,String role){
-    return Jwts.builder()
-            .subject(username)
-            .claims(Map.of("role",role))
-            .issuedAt(new Date())
-            .expiration(new Date(
-                System.currentTimeMillis()
-                        + EXPIRY))
-            .signWith(getKey())
-            .compact();
+    public String generateToken(String username, String role) {
+        return Jwts.builder()
+                .subject(username)
+                .claims(Map.of("role", role))
+                .issuedAt(new Date())
+                .expiration(new Date(
+                        System.currentTimeMillis()
+                                + EXPIRY))
+                .signWith(getKey())
+                .compact();
     }
+
     // ─────────────────────────────
     // READ username FROM token
     // ─────────────────────────────
     public String extractUsername(String token) {
         return getClaims(token).getSubject();
     }
+
     // ─────────────────────────────
     // VALIDATE token
     // ─────────────────────────────
-    public boolean isTokenValid(String token){
-    try {
-        getClaims(token);
-        return true;
-    } catch (Exception e){
-        return false;
+    public boolean isTokenValid(String token) {
+        try {
+            getClaims(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
-    }
+
     // ─────────────────────────────
     // PRIVATE helpers
     // ─────────────────────────────
